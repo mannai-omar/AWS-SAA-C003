@@ -8,5 +8,5 @@ fi
 
 bucketName=$1
 
-#https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/s3api/create-bucket.html
+#https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/s3api/delete-bucket.html
 aws s3api delete-bucket --bucket $bucketName
