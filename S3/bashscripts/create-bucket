@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+#check if the name of the bucket is passed in
+if [ -z "$1" ]; then
+    echo "You should specify the bucket name, e.g., my-bucket-example"
+    exit 1
+fi
+
+#check if the region is passed in
+if [ -z "$2" ]; then
+    echo "You should specify the region, e.g., eu-west-3"
+    exit 1
+fi
+
+bucketName=$1
+regionName=$2
+
+#https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/s3api/create-bucket.html
+aws s3api create-bucket --bucket $bucketName --create-bucket-configuration LocationConstraint=$regionName
