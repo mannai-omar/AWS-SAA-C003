@@ -1,3 +1,22 @@
 #!/usr/bin/env bash
 
-echo "testing"
+#!/usr/bin/env bash
+
+# Check if the bucket name is provided
+if [ -z "$1" ]; then
+    echo "You should specify the bucket name, e.g., my-bucket-example"
+    exit 1
+fi
+
+# Check if the folder is provided
+if [ -z "$2" ]; then
+    echo "You should specify the file to put in the bucket, e.g., /path/to/my-file"
+    exit 1
+fi
+
+bucketName="$1"
+folderPath="$2"
+
+# sync the folder to the S3 bucket
+# https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/s3/sync.html
+aws s3 sync "$folderPath" s3://"$bucketName"

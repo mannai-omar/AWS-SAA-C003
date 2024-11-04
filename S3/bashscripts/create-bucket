@@ -17,3 +17,11 @@ regionName=$2
 
 #https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/s3api/create-bucket.html
 aws s3api create-bucket --bucket $bucketName --create-bucket-configuration LocationConstraint=$regionName
+
+# Check if the creation was successful
+if [ $? -eq 0 ]; then
+    echo "the bucket '$bucketName' was successfully created"
+else
+    echo "Failed to create bucket."
+    exit 1
+fi
