@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#!/usr/bin/env bash
-
 # Check if the bucket name is provided
 if [ -z "$1" ]; then
     echo "You should specify the bucket name, e.g., my-bucket-example"
